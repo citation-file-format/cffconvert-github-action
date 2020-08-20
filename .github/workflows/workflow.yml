@@ -1,6 +1,6 @@
 jobs:
   build:
-  name: "cffchecker"
+    name: "cffchecker"
     runs-on: ubuntu-latest
     steps:
       # This step checks out a copy of your repository.
