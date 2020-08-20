@@ -1,4 +1,4 @@
-name: cffchecker
+name: cffconvert
 author: https://github.com/jspaaks
 description: Validate CITATION.cff and .zenodo.json and check consistency
 inputs: ~
