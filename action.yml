@@ -1,6 +1,7 @@
 name: cffconvert
 author: https://github.com/jspaaks
 description: Validate CITATION.cff and .zenodo.json and check consistency
+icon: check
 runs: 
   using: 'docker'
   image: 'Dockerfile'
