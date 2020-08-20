@@ -1,11 +1,11 @@
 {
-   "creators": [
-      {
-         "name": "Spaaks, Jurriaan H."
-      }
-   ], 
-   "license": {
-      "id": "Apache-2.0"
-   }, 
-   "title": "cffconvert GitHub Action"
+    "creators": [
+        {
+            "name": "Spaaks, Jurriaan H."
+        }
+    ],
+    "license": {
+        "id": "Apache-2.0"
+    },
+    "title": "cffconvert GitHub Action"
 }
