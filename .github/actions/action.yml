@@ -1,0 +1,9 @@
+name: cffchecker
+author: https://github.com/jspaaks
+description: Validate CITATION.cff and .zenodo.json and check consistency
+inputs: ~
+outputs: ~
+runs: 
+  using: 'docker'
+  image: 'docker://python:3.8-alpine'
+branding:
