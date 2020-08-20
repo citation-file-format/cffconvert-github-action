@@ -4,3 +4,7 @@ description: Validate CITATION.cff and .zenodo.json and check consistency
 runs: 
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - cffconvert
+    - '-f zenodo'
+    - 'bar'
