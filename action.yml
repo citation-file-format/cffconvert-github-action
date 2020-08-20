@@ -5,6 +5,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - cffconvert
-    - '-f'
-    - 'zenodo'
+    - /bin/sh
+    - checks.sh
