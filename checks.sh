@@ -2,33 +2,37 @@
 
 # check if CITATION.cff exists
 if [ -f "CITATION.cff" ]; then
-    echo "(1/6) CITATION.cff exists" ;
+    echo "(1/7) CITATION.cff exists" ;
 else
-    echo "(1/6) CITATION.cff missing. You can use https://bit.ly/cffinit to create one.";
+    echo "(1/7) CITATION.cff missing. You can use https://bit.ly/cffinit to create one.";
     exit 1;
 fi
 
 
 # check if .zenodo.json exists
 if [ -f ".zenodo.json" ]; then
-    echo "(2/6) .zenodo.json exists" ;
+    echo "(2/7) .zenodo.json exists" ;
 else
-    echo "(2/6) .zenodo.json missing. Aborting.";
+    echo "(2/7) .zenodo.json missing. Aborting.";
     exit 1;
 fi
 
 # check if CITATION.cff is valid YAML
-echo "(3/6) Unimplemented"
+echo "(3/7) Unimplemented"
 
 # check if .zenodo.json is valid JSON
-echo "(4/6) Unimplemented"
+echo "(4/7) Unimplemented"
 
 
 # check if CITATION.cff is valid CFF --warn if not
+CFFCONVERT_VERSION=$(cffconvert --version)
+echo "(5/7) Using cffconvert version ${CFFCONVERT_VERSION}."
+
 if [ -z "$(cffconvert --validate)" ] ; then 
-    echo "(5/6) CITATION.cff is valid CFF.";
+    echo "(6/7) CITATION.cff is valid CFF.";
 else
-    echo "(5/6) Warning: CITATION.cff is invalid CFF.";
+    cffconvert --validate
+    echo "(6/7) Warning: CITATION.cff is invalid CFF.";
 fi
 
 
@@ -36,8 +40,9 @@ fi
 TMPFILE=$(mktemp .zenodo.json.XXXXXXXXXX)
 cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
 if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then 
-    echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
+    echo "(7/7) CITATION.cff and .zenodo.json are equivalent.";
 else
-    echo "(6/6) CITATION.cff and .zenodo.json are not equivalent.";
+    diff --side-by-side .zenodo.json ${TMPFILE}
+    echo "(7/7) CITATION.cff and .zenodo.json are not equivalent.";
     exit 1;
 fi
