@@ -6,5 +6,5 @@ runs:
   image: 'Dockerfile'
   args:
     - cffconvert
-    - '-f zenodo'
-    - 'bar'
+    - '-f'
+    - 'zenodo'
