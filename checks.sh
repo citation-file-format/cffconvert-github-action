@@ -26,9 +26,9 @@ echo "(4/6) Unimplemented"
 
 # check if CITATION.cff is valid CFF --warn if not
 if [ -z "$(cffconvert --validate)" ] ; then 
-    echo "(5/6) CITATION.cff is valid.";
+    echo "(5/6) CITATION.cff is valid CFF.";
 else
-    echo "(5/6) Warning: CITATION.cff is invalid.";
+    echo "(5/6) Warning: CITATION.cff is invalid CFF.";
 fi
 
 
