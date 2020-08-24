@@ -10,3 +10,6 @@ runs:
   args:
     - /bin/sh
     - checks.sh
+    - $WORKDIR
+  env:
+    WORKDIR: ''

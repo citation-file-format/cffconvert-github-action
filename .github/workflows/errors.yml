@@ -10,9 +10,6 @@ jobs:
       # This step references the directory that contains the action.
       - uses: citation-file-format/cffconvert-github-action@v1
       # various checks
-      - name: first
-        shell: bash -l {0}
-        run: echo "first"
-      - name: second
-        shell: bash -l {0}
-        run: echo "second"
+      - uses: citation-file-format/cffconvert-github-action@v1
+        with:
+          WORKDIR: cff-missing
