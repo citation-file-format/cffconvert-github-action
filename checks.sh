@@ -1,10 +1,9 @@
 #! /bin/sh
 # arguments:
 # 1. a relative path to a directory
-# 2. exit code that negates exit codes for success and failure (used in testing)
+# 2. flip exit codes for success and failure (used in testing)
 
-# for testing purposes, it can be useful to flip the failure code
-if [ -n "$2" ] || [ "$2" == "0" ] ; then
+if [ -z "$2" ] || [ "$2" == "0" ] ; then
     FAILURE_EXPECTED=0
     FAILURE_CODE=1
     SUCCESS_CODE=0
@@ -42,8 +41,10 @@ else
     exit ${FAILURE_CODE};
 fi
 
+
 # check if CITATION.cff is valid YAML
 echo "(3/7) Unimplemented"
+
 
 # check if .zenodo.json is valid JSON
 echo "(4/7) Unimplemented"
