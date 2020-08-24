@@ -11,15 +11,20 @@ jobs:
       # run the checks on a series of directories
       - uses: citation-file-format/cffconvert-github-action@tests
         with:
-          WORKDIR: ''
-          FAILURE_EXPECTED: '0'
-
-      - uses: citation-file-format/cffconvert-github-action@tests
-        with:
           WORKDIR: non-existing-directory/
           FAILURE_EXPECTED: '1'
 
       - uses: citation-file-format/cffconvert-github-action@tests
         with:
           WORKDIR: tests/cff-missing/
+          FAILURE_EXPECTED: '1'
+
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/zenodo-missing/
+          FAILURE_EXPECTED: '1'
+
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/zenodo-not-equivalent/
           FAILURE_EXPECTED: '1'
