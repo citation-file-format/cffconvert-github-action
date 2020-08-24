@@ -11,5 +11,8 @@ jobs:
       - uses: citation-file-format/cffconvert-github-action@v1
       # various checks
       - uses: citation-file-format/cffconvert-github-action@v1
-        with:
-          WORKDIR: cff-missing
+        args:
+          - /bin/sh
+          - checks.sh
+          - cff-missing/
+
