@@ -9,6 +9,10 @@ inputs:
     description: 'The working directory that checks.sh should change to'
     required: false
     default: ''
+  FAILURE_EXPECTED:
+    description: 'In testing it can be useful to flip the exit codes for failure and success. Set to 1 for flipped definition; 0 or empty gives normal behavior.'
+    required: false
+    default: '0'
 runs: 
   using: 'docker'
   image: 'Dockerfile'
@@ -16,3 +20,4 @@ runs:
     - /bin/sh
     - checks.sh
     - ${{ inputs.WORKDIR }}
+    - ${{ inputs.FAILURE_EXPECTED }}

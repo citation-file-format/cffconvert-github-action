@@ -7,12 +7,19 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
-      # This step references the directory that contains the action.
-      - uses: citation-file-format/cffconvert-github-action@tests
+
       # run the checks on a series of directories
       - uses: citation-file-format/cffconvert-github-action@tests
         with:
-          WORKDIR: non-existing-directory/02347902792739572935904ojsodf
+          WORKDIR: ''
+          FAILURE_EXPECTED: '0'
+
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: non-existing-directory/
+          FAILURE_EXPECTED: '1'
+
       - uses: citation-file-format/cffconvert-github-action@tests
         with:
           WORKDIR: tests/cff-missing/
+          FAILURE_EXPECTED: '1'

@@ -1,9 +1,29 @@
 #! /bin/sh
+# arguments:
+# 1. a relative path to a directory
+# 2. exit code that negates exit codes for success and failure (used in testing)
 
-# If an argument has been provided by the user, interpret
+# for testing purposes, it can be useful to flip the failure code
+if [ -n "$2" ] || [ "$2" == "0" ] ; then
+    FAILURE_EXPECTED=0
+    FAILURE_CODE=1
+    SUCCESS_CODE=0
+fi
+
+if [ "$2" == "1" ] ; then
+    echo "Reversing the definition of failure and success"
+    FAILURE_EXPECTED=1
+    FAILURE_CODE=0
+    SUCCESS_CODE=1
+else
+    echo "Second input argument should be empty, 0, or 1"
+    exit 1;
+fi
+
+# If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
 if [ -n "$1" ] ; then
-    cd $1 || exit 1
+    cd $1 || exit ${FAILURE_CODE}
     echo "Changed directory into $1"
 fi
 
@@ -12,7 +32,7 @@ if [ -f "CITATION.cff" ]; then
     echo "(1/7) CITATION.cff exists" ;
 else
     echo "(1/7) CITATION.cff missing. You can use https://bit.ly/cffinit to create one.";
-    exit 1;
+    exit ${FAILURE_CODE};
 fi
 
 
@@ -21,7 +41,7 @@ if [ -f ".zenodo.json" ]; then
     echo "(2/7) .zenodo.json exists" ;
 else
     echo "(2/7) .zenodo.json missing. Aborting.";
-    exit 1;
+    exit ${FAILURE_CODE};
 fi
 
 # check if CITATION.cff is valid YAML
@@ -51,5 +71,7 @@ if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then
 else
     diff --side-by-side .zenodo.json ${TMPFILE}
     echo "(7/7) CITATION.cff and .zenodo.json are not equivalent.";
-    exit 1;
+    exit ${FAILURE_CODE};
 fi
+
+exit ${SUCCESS_CODE};
