@@ -8,8 +8,8 @@ jobs:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
       # This step references the directory that contains the action.
-      - uses: citation-file-format/cffconvert-github-action@v1
+      - uses: citation-file-format/cffconvert-github-action@tests
       # run the checks on a series of directories
-      - uses: citation-file-format/cffconvert-github-action@v1
+      - uses: citation-file-format/cffconvert-github-action@tests
         with:
           WORKDIR: cff-missing/
