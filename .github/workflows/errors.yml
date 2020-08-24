@@ -12,4 +12,7 @@ jobs:
       # run the checks on a series of directories
       - uses: citation-file-format/cffconvert-github-action@tests
         with:
-          WORKDIR: cff-missing/
+          WORKDIR: non-existing-directory/02347902792739572935904ojsodf
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/cff-missing/

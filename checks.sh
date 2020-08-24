@@ -3,7 +3,7 @@
 # If an argument has been provided by the user, interpret
 # it as a relative path to a directory, and change into it
 if [ -n "$1" ] ; then
-    cd $1
+    cd $1 || exit 1
     echo "Changed directory into $1"
 fi
 
