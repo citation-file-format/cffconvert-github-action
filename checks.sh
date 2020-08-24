@@ -8,9 +8,7 @@ if [ -n "$2" ] || [ "$2" == "0" ] ; then
     FAILURE_EXPECTED=0
     FAILURE_CODE=1
     SUCCESS_CODE=0
-fi
-
-if [ "$2" == "1" ] ; then
+elif [ "$2" == "1" ] ; then
     echo "Reversing the definition of failure and success"
     FAILURE_EXPECTED=1
     FAILURE_CODE=0
