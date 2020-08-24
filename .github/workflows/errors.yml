@@ -9,10 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       # This step references the directory that contains the action.
       - uses: citation-file-format/cffconvert-github-action@v1
-      # various checks
+      # run the checks on a series of directories
       - uses: citation-file-format/cffconvert-github-action@v1
-        args:
-          - /bin/sh
-          - checks.sh
-          - cff-missing/
-
+        with:
+          WORKDIR: cff-missing/

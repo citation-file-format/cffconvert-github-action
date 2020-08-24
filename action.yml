@@ -4,9 +4,15 @@ description: Validate CITATION.cff and .zenodo.json and check consistency
 branding:
   icon: check
   color: purple
+inputs:
+  WORKDIR:
+    description: 'The working directory that checks.sh should change to'
+    required: false
+    default: ''
 runs: 
   using: 'docker'
   image: 'Dockerfile'
   args:
     - /bin/sh
     - checks.sh
+    - ${{ inputs.WORKDIR }}
