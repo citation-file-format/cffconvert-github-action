@@ -7,5 +7,5 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
-      # This step references the directory that contains the action.
+      # This step references the repository that contains the action.
       - uses: citation-file-format/cffconvert-github-action@v1
