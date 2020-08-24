@@ -66,7 +66,7 @@ cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
 if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then 
     echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
 else
-    diff --side-by-side .zenodo.json ${TMPFILE}
+    diff .zenodo.json ${TMPFILE}
     echo "(6/6) CITATION.cff and .zenodo.json are not equivalent.";
     exit ${FAILURE_CODE};
 fi
