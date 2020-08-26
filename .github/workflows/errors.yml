@@ -10,47 +10,40 @@ jobs:
 
       # run checks on a series of directories
       - name: A directory with missing CITATION.cff file should fail
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: true
           WORKDIR: tests/cff-missing/
 
       - name: A directory with missing zenodo file should fail
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: true
           WORKDIR: tests/zenodo-missing/
 
       - name: A zenodo file with missing title field should fail
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: true
           WORKDIR: tests/zenodo-not-equivalent/
 
       - name: A zenodo file with extra spaces should pass when DIFF_IGNORE_WHITESPACE is undefined
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           DIFF_IGNORE_WHITESPACE: ''
           FAILURE_EXPECTED: false
           WORKDIR: tests/zenodo-with-extra-whitespace/
 
       - name: A zenodo file with extra spaces should pass when DIFF_IGNORE_WHITESPACE is true
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           DIFF_IGNORE_WHITESPACE: true
           FAILURE_EXPECTED: false
           WORKDIR: tests/zenodo-with-extra-whitespace/
 
       - name: A zenodo file with extra spaces should fail when DIFF_IGNORE_WHITESPACE is false
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           DIFF_IGNORE_WHITESPACE: false
-          FAILURE_EXPECTED: true
-          WORKDIR: tests/zenodo-with-extra-whitespace/
-
-      - name: Should fail when DIFF_IGNORE_WHITESPACE is invalid value
-        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
-        with:
-          DIFF_IGNORE_WHITESPACE: "hello"
           FAILURE_EXPECTED: true
           WORKDIR: tests/zenodo-with-extra-whitespace/
