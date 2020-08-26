@@ -13,7 +13,7 @@ elif [ "$2" == "1" ] ; then
     FAILURE_CODE=0
     SUCCESS_CODE=1
 else
-    echo "Second input argument should be empty, 0, or 1"
+    echo "Second input argument should be empty, 0, or 1. Aborting."
     exit 1;
 fi
 
@@ -28,18 +28,18 @@ echo "Using cffconvert version $(cffconvert --version)."
 
 # check if CITATION.cff exists
 if [ -f "CITATION.cff" ]; then
-    echo "(1/6) CITATION.cff exists" ;
+    echo "(1/6) CITATION.cff file exists" ;
 else
-    echo "(1/6) CITATION.cff missing. You can use https://bit.ly/cffinit to create one.";
+    echo "(1/6) CITATION.cff file missing. You can use https://bit.ly/cffinit to create one. Aborting.";
     exit ${FAILURE_CODE};
 fi
 
 
 # check if .zenodo.json exists
 if [ -f ".zenodo.json" ]; then
-    echo "(2/6) .zenodo.json exists" ;
+    echo "(2/6) .zenodo.json file exists" ;
 else
-    echo "(2/6) .zenodo.json missing. Aborting.";
+    echo "(2/6) .zenodo.json file missing. Aborting.";
     exit ${FAILURE_CODE};
 fi
 
@@ -66,8 +66,13 @@ cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
 if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then 
     echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
 else
+    echo "I expected .zenodo.json to have the following content..."
+    cat ${TMPFILE}
+    echo "...but I found:"
+    cat .zenodo.json
+    echo "... with diff:"
     diff .zenodo.json ${TMPFILE}
-    echo "(6/6) CITATION.cff and .zenodo.json are not equivalent.";
+    echo "(6/6) CITATION.cff and .zenodo.json are not equivalent. Aborting.";
     exit ${FAILURE_CODE};
 fi
 

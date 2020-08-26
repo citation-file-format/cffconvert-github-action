@@ -5,19 +5,24 @@ branding:
   icon: check
   color: purple
 inputs:
-  WORKDIR:
-    description: 'The working directory that checks.sh should change to'
+  CFFCONVERT_VERSION:
+    description: 'String specifying which cffconvert version to use, including wildcards and relational operators, e.g.: "==1.3.*", ">=1"'
     required: false
     default: ''
   FAILURE_EXPECTED:
     description: 'In testing it can be useful to flip the exit codes for failure and success. Set to 1 for flipped definition; 0 or empty gives normal behavior.'
     required: false
     default: '0'
+  WORKDIR:
+    description: 'The working directory that checks.sh should change to'
+    required: false
+    default: ''
 runs: 
   using: 'docker'
   image: 'Dockerfile'
   args:
     - /bin/sh
     - checks.sh
-    - ${{ inputs.WORKDIR }}
+    - ${{ inputs.CFFCONVERT_VERSION }}
     - ${{ inputs.FAILURE_EXPECTED }}
+    - ${{ inputs.WORKDIR }}
