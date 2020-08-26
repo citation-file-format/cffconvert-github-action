@@ -1,0 +1,14 @@
+# YAML 1.2
+---
+authors:
+  -
+    family-names: Spaaks
+    given-names: "Jurriaan H."
+    orcid: "https://orcid.org/0000-0002-7064-4069"
+cff-version: "1.1.0"
+date-released: 2020-08-21
+license: "Apache-2.0"
+message: "If you use this software, please cite it using these metadata."
+title: "cffconvert GitHub Action"
+version: 1.1.0
+...

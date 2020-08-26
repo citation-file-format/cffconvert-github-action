@@ -28,3 +28,22 @@ jobs:
         with:
           WORKDIR: tests/zenodo-not-equivalent/
           FAILURE_EXPECTED: '1'
+
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/zenodo-with-extra-whitespace/
+          FAILURE_EXPECTED: '0'
+          DIFF_IGNORE_WHITESPACE: ''
+
+      - uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/zenodo-with-extra-whitespace/
+          FAILURE_EXPECTED: '0'
+          DIFF_IGNORE_WHITESPACE: '1'
+
+      - name: final
+        uses: citation-file-format/cffconvert-github-action@tests
+        with:
+          WORKDIR: tests/zenodo-with-extra-whitespace/
+          FAILURE_EXPECTED: '1'
+          DIFF_IGNORE_WHITESPACE: '0'

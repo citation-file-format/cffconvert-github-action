@@ -93,7 +93,7 @@ if [ "${DIFF_IGNORE_WHITESPACE}" -eq "0" ] ; then
         exit ${FAILURE_CODE};
     fi
 else
-    if [ -z "$(diff --ignore-all-space .zenodo.json ${TMPFILE})" ] ; then
+    if [ -z "$(diff --ignore-all-space --ignore-blank-lines .zenodo.json ${TMPFILE})" ] ; then
         echo "(6/6) CITATION.cff and .zenodo.json are equivalent when ignoring whitespace.";
     else
         echo "I expected .zenodo.json to have the following content..."
@@ -101,7 +101,7 @@ else
         echo "...but I found:"
         cat .zenodo.json
         echo "... with diff (ignoring whitespace):"
-        diff --ignore-all-space .zenodo.json ${TMPFILE}
+        diff --ignore-all-space --ignore-blank-lines .zenodo.json ${TMPFILE}
         echo "(6/6) CITATION.cff and .zenodo.json are not equivalent. Aborting.";
         exit ${FAILURE_CODE};
     fi
