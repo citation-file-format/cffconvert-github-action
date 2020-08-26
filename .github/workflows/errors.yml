@@ -1,7 +1,7 @@
 on: push
 
 jobs:
-  build:
+  verify:
     name: "Verify errors"
     runs-on: ubuntu-latest
     steps:
