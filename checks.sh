@@ -4,6 +4,11 @@
 # 2. flag to flip exit codes for success and failure (used in testing)
 # 3. flag to ignore whitespace when diffing
 
+echo $0
+echo $1
+echo $2
+echo $3
+
 # If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
 if [ -z "$1" ] || [ "$1" == "." ] || [ "$1" == "./" ] ; then
