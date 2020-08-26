@@ -35,35 +35,38 @@ else
 fi
 
 
+# check if CITATION.cff is valid YAML
+echo "(2/6) Check if CITATION.cff is valid YAML -- Unimplemented"
+
+
+if $(cffconvert --validate) ; then
+    echo "(3/6) CITATION.cff is valid CFF.";
+else
+    cffconvert --validate
+    echo "(3/6) Warning: CITATION.cff is invalid CFF.";
+fi
+
+
 # check if .zenodo.json exists
 if [ -f ".zenodo.json" ]; then
-    echo "(2/6) .zenodo.json file exists" ;
+    echo "(4/6) .zenodo.json file exists" ;
 else
-    echo "(2/6) .zenodo.json file missing. Aborting.";
+    echo "(4/6) .zenodo.json file missing.";
+    echo "Expected a .zenodo.json file with the following content..."
+    cffconvert --outputformat zenodo --ignore-suspect-keys
+    echo "...Aborting."
     exit ${FAILURE_CODE};
 fi
 
 
-# check if CITATION.cff is valid YAML
-echo "(3/6) Unimplemented"
-
-
 # check if .zenodo.json is valid JSON
-echo "(4/6) Unimplemented"
-
-
-if $(cffconvert --validate) ; then 
-    echo "(5/6) CITATION.cff is valid CFF.";
-else
-    cffconvert --validate
-    echo "(5/6) Warning: CITATION.cff is invalid CFF.";
-fi
+echo "(5/6) Check if .zenodo.json is valid JSON -- Unimplemented"
 
 
 # check if CITATION.cff and .zenodo.json are equivalent
 TMPFILE=$(mktemp .zenodo.json.XXXXXXXXXX)
 cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
-if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then 
+if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then
     echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
 else
     echo "I expected .zenodo.json to have the following content..."
