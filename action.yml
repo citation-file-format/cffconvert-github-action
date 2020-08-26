@@ -17,12 +17,11 @@ inputs:
     description: 'The working directory that checks.sh should change to'
     required: false
     default: ''
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - /bin/sh
     - checks.sh
-    - ${{ inputs.CFFCONVERT_VERSION }}
-    - ${{ inputs.FAILURE_EXPECTED }}
     - ${{ inputs.WORKDIR }}
+    - ${{ inputs.FAILURE_EXPECTED }}
