@@ -4,38 +4,44 @@
 # 2. flag to flip exit codes for success and failure (used in testing)
 # 3. flag to ignore whitespace when diffing
 
+echo "$0 received the following input values:"
+echo "WORKDIR                = $1"
+echo "FAILURE_EXPECTED       = $2"
+echo "DIFF_IGNORE_WHITESPACE = $3"
+
 # If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
 if [ -z "$1" ] || [ "$1" == "." ] || [ "$1" == "./" ] ; then
-    noop
+    # pass
+    :
 else
     cd $1 || exit 1
     echo "Changed directory into $1"
 fi
 
 
-if [ -z "$2" ] || [ "$2" == "0" ] ; then
-    FAILURE_EXPECTED=0
+if [ -z "$2" ] || [ "$2" == "false" ] ; then
+    FAILURE_EXPECTED="false"
     FAILURE_CODE=1
     SUCCESS_CODE=0
-elif [ "$2" == "1" ] ; then
+elif [ "$2" == "true" ] ; then
     echo "Reversing the definition of failure and success"
-    FAILURE_EXPECTED=1
+    FAILURE_EXPECTED="true"
     FAILURE_CODE=0
     SUCCESS_CODE=1
 else
-    echo "Second input argument (FAILURE_EXPECTED) should be empty, 0, or 1. Aborting."
+    echo "Second input argument (FAILURE_EXPECTED) should be '', 'false', or 'true'. Aborting."
     exit 1;
 fi
 
 
-if [ -z "$3" ] || [ "$3" == "1" ] ; then
-    DIFF_IGNORE_WHITESPACE=1
-elif [ "$3" == "0" ] ; then
+if [ -z "$3" ] || [ "$3" == "true" ] ; then
+    DIFF_IGNORE_WHITESPACE="true"
+elif [ "$3" == "false" ] ; then
     echo "Not ignoring the whitespace when diff'ing"
-    DIFF_IGNORE_WHITESPACE=0
+    DIFF_IGNORE_WHITESPACE="false"
 else
-    echo "Third input argument (DIFF_IGNORE_WHITESPACE) should be empty, 0, or 1. Aborting."
+    echo "Third input argument (DIFF_IGNORE_WHITESPACE) should be '', 'false', or 'true'. Aborting."
     exit 1;
 fi
 
@@ -83,7 +89,7 @@ echo "(5/6) Check if .zenodo.json is valid JSON -- Unimplemented"
 TMPFILE=$(mktemp .zenodo.json.XXXXXXXXXX)
 cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
 
-if [ "${DIFF_IGNORE_WHITESPACE}" -eq "0" ] ; then
+if [ "${DIFF_IGNORE_WHITESPACE}" == "false" ] ; then
     if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then
         echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
     else

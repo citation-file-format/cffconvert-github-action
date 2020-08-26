@@ -6,11 +6,11 @@ branding:
 description: "Validate CITATION.cff and .zenodo.json and check consistency"
 inputs:
   DIFF_IGNORE_WHITESPACE:
-    default: "1"
+    default: true
     description: "Ignore all whitespace when diffing the expected .zenodo.json with the actual .zenodo.json contents."
     required: false
   FAILURE_EXPECTED:
-    default: "0"
+    default: false
     description: "In testing it can be useful to flip the exit codes for failure and success. Set to 1 for flipped definition; 0 or empty gives normal behavior."
     required: false
   WORKDIR:
