@@ -44,6 +44,6 @@ jobs:
       - name: A zenodo file with extra spaces should fail when DIFF_IGNORE_WHITESPACE is false
         uses: citation-file-format/cffconvert-github-action@bools-in-workflow
         with:
-          DIFF_IGNORE_WHITESPACE: true
+          DIFF_IGNORE_WHITESPACE: false
           FAILURE_EXPECTED: true
           WORKDIR: tests/zenodo-with-extra-whitespace/
