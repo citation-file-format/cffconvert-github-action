@@ -5,7 +5,7 @@ GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` cita
 
 ## Example usage
 
-1. Save the following snippet as ``.github/workflows/cffconvert.yml``.
+1. Save the following snippet as ``.github/workflows/cffconvert.yml``
 
    ```yaml
    on: push
