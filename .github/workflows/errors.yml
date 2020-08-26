@@ -47,3 +47,10 @@ jobs:
           DIFF_IGNORE_WHITESPACE: false
           FAILURE_EXPECTED: true
           WORKDIR: tests/zenodo-with-extra-whitespace/
+
+      - name: Should fail when DIFF_IGNORE_WHITESPACE is invalid value
+        uses: citation-file-format/cffconvert-github-action@bools-in-workflow
+        with:
+          DIFF_IGNORE_WHITESPACE: "hello"
+          FAILURE_EXPECTED: true
+          WORKDIR: tests/zenodo-with-extra-whitespace/
