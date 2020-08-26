@@ -4,6 +4,16 @@
 # 2. flag to flip exit codes for success and failure (used in testing)
 # 3. flag to ignore whitespace when diffing
 
+# If the user has provided a first input argument, interpret
+# it as a relative path to a directory, and change into it
+if [ -z "$1" ] || [ "$1" == "." ] || [ "$1" == "./" ] ; then
+    noop
+else
+    cd $1 || exit 1
+    echo "Changed directory into $1"
+fi
+
+
 if [ -z "$2" ] || [ "$2" == "0" ] ; then
     FAILURE_EXPECTED=0
     FAILURE_CODE=1
@@ -18,20 +28,12 @@ else
     exit 1;
 fi
 
-# If the user has provided a first input argument, interpret
-# it as a relative path to a directory, and change into it
-if  [ "$1" == "."] || [ "$1" == "./"] ; then
-    # pass
-elif [ -n "$1" ] ; then
-    cd $1 || exit ${FAILURE_CODE}
-    echo "Changed directory into $1"
-fi
 
-if [ "$3" == "0" ] ; then
+if [ -z "$3" ] || [ "$3" == "1" ] ; then
+    DIFF_IGNORE_WHITESPACE=1
+elif [ "$3" == "0" ] ; then
     echo "Not ignoring the whitespace when diff'ing"
     DIFF_IGNORE_WHITESPACE=0
-elif [ -z "$3" ] || [ "$3" == "1" ] ; then
-    DIFF_IGNORE_WHITESPACE=1
 else
     echo "Third input argument (DIFF_IGNORE_WHITESPACE) should be empty, 0, or 1. Aborting."
     exit 1;

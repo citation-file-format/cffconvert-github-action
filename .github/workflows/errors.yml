@@ -9,12 +9,6 @@ jobs:
       - uses: actions/checkout@v2
 
       # run checks on a series of directories
-      - name: Trying to run in a non-existing directory should fail
-        uses: citation-file-format/cffconvert-github-action@tests
-        with:
-          FAILURE_EXPECTED: '1'
-          WORKDIR: non-existing-directory/
-
       - name: A directory with missing CITATION.cff file should fail
         uses: citation-file-format/cffconvert-github-action@tests
         with:
