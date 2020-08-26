@@ -27,7 +27,7 @@ jobs:
           FAILURE_EXPECTED: '1'
           WORKDIR: tests/zenodo-missing/
 
-      - name: A zenodo file with missing license field should fail
+      - name: A zenodo file with missing title field should fail
         uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: '1'
