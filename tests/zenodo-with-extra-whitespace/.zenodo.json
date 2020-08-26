@@ -6,11 +6,12 @@
         {
 
             "name": "Spaaks, Jurriaan H.",
-            "orcid": "0000-0002-7064-4069"
+            "orcid": "0000-0002-7064-4069"    
         }
-    ],
+    ],   
     "license": {
-        "id": "Apache-2.0"
+        "id": "Apache-2.0"  
     },
     "title": "cffconvert GitHub Action"
 }
+   

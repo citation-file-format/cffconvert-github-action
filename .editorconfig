@@ -14,3 +14,7 @@ charset = utf-8
 [*.{yml,yaml}]
 indent_style = space
 indent_size = 2
+
+
+[tests/zenodo-with-extra-whitespace/.zenodo.json]
+trim_trailing_whitespace = false
