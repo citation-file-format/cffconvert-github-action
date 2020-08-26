@@ -15,10 +15,11 @@ GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` cita
        name: "cffconvert"
        runs-on: ubuntu-latest
        steps:
-         # This step checks out a copy of your repository.
          - uses: actions/checkout@v2
-         # This step references the repository that contains the action.
+           name: Check out a copy of the repository
+
          - uses: citation-file-format/cffconvert-github-action@v1
+           name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
    ```
 
 1. ``git add``, ``commit`` and ``push`` to GitHub
@@ -44,9 +45,11 @@ jobs:
     name: "cffconvert"
     runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
+        name: Check out a copy of the repository
+
       - uses: citation-file-format/cffconvert-github-action@master
+        name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
         with:
           WORKDIR: tests/zenodo-missing/
           FAILURE_EXPECTED: '1'
