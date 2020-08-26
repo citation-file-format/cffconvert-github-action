@@ -4,6 +4,5 @@ RUN mkdir /data
 COPY . /data/
 WORKDIR /data
 
-ARG CFFCONVERT_VERSION=''
-RUN pip install cffconvert${CFFCONVERT_VERSION}
+RUN pip install cffconvert
 CMD ["cffconvert", "--help"]
