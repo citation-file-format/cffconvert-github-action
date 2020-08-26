@@ -36,10 +36,10 @@ fi
 
 
 if [ -z "$3" ] || [ "$3" == "true" ] ; then
-    DIFF_IGNORE_WHITESPACE=1
+    DIFF_IGNORE_WHITESPACE="true"
 elif [ "$3" == "false" ] ; then
     echo "Not ignoring the whitespace when diff'ing"
-    DIFF_IGNORE_WHITESPACE=0
+    DIFF_IGNORE_WHITESPACE="false"
 else
     echo "Third input argument (DIFF_IGNORE_WHITESPACE) should be '', 'false', or 'true'. Aborting."
     exit 1;
