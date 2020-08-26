@@ -4,10 +4,10 @@
 # 2. flag to flip exit codes for success and failure (used in testing)
 # 3. flag to ignore whitespace when diffing
 
-echo $0
-echo $1
-echo $2
-echo $3
+echo "$0 received the following input values:"
+echo "WORKDIR                = $1"
+echo "FAILURE_EXPECTED       = $2"
+echo "DIFF_IGNORE_WHITESPACE = $3"
 
 # If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
