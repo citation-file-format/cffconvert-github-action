@@ -52,6 +52,6 @@ jobs:
         name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
         with:
           WORKDIR: tests/zenodo-missing/
-          FAILURE_EXPECTED: '1'
-          DIFF_IGNORE_WHITESPACE: '1'
+          FAILURE_EXPECTED: true
+          DIFF_IGNORE_WHITESPACE: true
 ```
