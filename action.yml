@@ -6,7 +6,7 @@ branding:
   color: purple
 inputs:
   DIFF_IGNORE_WHITESPACE:
-    description: 'Ignore all whitespace when diff'ing the expected .zenodo.json with the actual .zenodo.json contents.'
+    description: 'Ignore all whitespace when diff\'ing the expected .zenodo.json with the actual .zenodo.json contents.'
     required: false
     default: '1'
   FAILURE_EXPECTED:
