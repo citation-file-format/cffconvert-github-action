@@ -14,7 +14,7 @@ inputs:
     description: "In testing it can be useful to flip the exit codes for failure and success. Set to 1 for flipped definition; 0 or empty gives normal behavior."
     required: false
   WORKDIR:
-    default: ""
+    default: "."
     description: "The working directory that checks.sh should change to"
     required: false
 name: cffconvert

@@ -14,13 +14,15 @@ elif [ "$2" == "1" ] ; then
     FAILURE_CODE=0
     SUCCESS_CODE=1
 else
-    echo "Second input argument should be empty, 0, or 1. Aborting."
+    echo "Second input argument (FAILURE_EXPECTED) should be empty, 0, or 1. Aborting."
     exit 1;
 fi
 
 # If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
-if [ -n "$1" ] ; then
+if  [ "$1" == "."] || [ "$1" == "./"] ; then
+    # pass
+elif [ -n "$1" ] ; then
     cd $1 || exit ${FAILURE_CODE}
     echo "Changed directory into $1"
 fi
@@ -31,7 +33,7 @@ if [ "$3" == "0" ] ; then
 elif [ -z "$3" ] || [ "$3" == "1" ] ; then
     DIFF_IGNORE_WHITESPACE=1
 else
-    echo "Third input argument should be empty, 0, or 1. Aborting."
+    echo "Third input argument (DIFF_IGNORE_WHITESPACE) should be empty, 0, or 1. Aborting."
     exit 1;
 fi
 
