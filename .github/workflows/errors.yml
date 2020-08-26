@@ -34,14 +34,14 @@ jobs:
           FAILURE_EXPECTED: false
           WORKDIR: tests/zenodo-with-extra-whitespace/
 
-      - name: A zenodo file with extra spaces should pass when DIFF_IGNORE_WHITESPACE is True
+      - name: A zenodo file with extra spaces should pass when DIFF_IGNORE_WHITESPACE is true
         uses: citation-file-format/cffconvert-github-action@bools-in-workflow
         with:
           DIFF_IGNORE_WHITESPACE: true
           FAILURE_EXPECTED: false
           WORKDIR: tests/zenodo-with-extra-whitespace/
 
-      - name: A zenodo file with extra spaces should fail when DIFF_IGNORE_WHITESPACE is False
+      - name: A zenodo file with extra spaces should fail when DIFF_IGNORE_WHITESPACE is false
         uses: citation-file-format/cffconvert-github-action@bools-in-workflow
         with:
           DIFF_IGNORE_WHITESPACE: true
