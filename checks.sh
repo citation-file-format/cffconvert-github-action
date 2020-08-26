@@ -12,7 +12,8 @@ echo $3
 # If the user has provided a first input argument, interpret
 # it as a relative path to a directory, and change into it
 if [ -z "$1" ] || [ "$1" == "." ] || [ "$1" == "./" ] ; then
-    noop
+    # pass
+    :
 else
     cd $1 || exit 1
     echo "Changed directory into $1"
