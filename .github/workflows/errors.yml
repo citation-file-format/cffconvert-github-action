@@ -8,23 +8,27 @@ jobs:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
 
-      # run the checks on a series of directories
-      - uses: citation-file-format/cffconvert-github-action@tests
+      # run checks on a series of directories
+      - name: Trying to run in a non-existing directory should fail
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: '1'
           WORKDIR: non-existing-directory/
 
-      - uses: citation-file-format/cffconvert-github-action@tests
+      - name: A directory with missing CITATION.cff file should fail
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: '1'
           WORKDIR: tests/cff-missing/
 
-      - uses: citation-file-format/cffconvert-github-action@tests
+      - name: A directory with missing zenodo file should fail
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: '1'
           WORKDIR: tests/zenodo-missing/
 
-      - uses: citation-file-format/cffconvert-github-action@tests
+      - name: A zenodo file with missing license field should fail
+        uses: citation-file-format/cffconvert-github-action@tests
         with:
           FAILURE_EXPECTED: '1'
           WORKDIR: tests/zenodo-not-equivalent/
