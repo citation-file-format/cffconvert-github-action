@@ -1,7 +1,8 @@
 #! /bin/sh
 # arguments:
 # 1. a relative path to a directory
-# 2. flip exit codes for success and failure (used in testing)
+# 2. flag to flip exit codes for success and failure (used in testing)
+# 3. flag to ignore whitespace when diffing
 
 if [ -z "$2" ] || [ "$2" == "0" ] ; then
     FAILURE_EXPECTED=0
@@ -23,6 +24,17 @@ if [ -n "$1" ] ; then
     cd $1 || exit ${FAILURE_CODE}
     echo "Changed directory into $1"
 fi
+
+if [ "$3" == "0" ] ; then
+    echo "Not ignoring the whitespace when diff'ing"
+    DIFF_IGNORE_WHITESPACE=0
+elif [ -z "$3" ] || [ "$3" == "1" ] ; then
+    DIFF_IGNORE_WHITESPACE=1
+else
+    echo "Third input argument should be empty, 0, or 1. Aborting."
+    exit 1;
+fi
+
 
 echo "Using cffconvert version $(cffconvert --version)."
 
@@ -66,17 +78,33 @@ echo "(5/6) Check if .zenodo.json is valid JSON -- Unimplemented"
 # check if CITATION.cff and .zenodo.json are equivalent
 TMPFILE=$(mktemp .zenodo.json.XXXXXXXXXX)
 cffconvert --outputformat zenodo --ignore-suspect-keys > ${TMPFILE}
-if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then
-    echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
+
+if [ "${DIFF_IGNORE_WHITESPACE}" -eq "0" ] ; then
+    if [ -z "$(diff .zenodo.json ${TMPFILE})" ] ; then
+        echo "(6/6) CITATION.cff and .zenodo.json are equivalent.";
+    else
+        echo "I expected .zenodo.json to have the following content..."
+        cat ${TMPFILE}
+        echo "...but I found:"
+        cat .zenodo.json
+        echo "... with diff:"
+        diff .zenodo.json ${TMPFILE}
+        echo "(6/6) CITATION.cff and .zenodo.json are not equivalent. Aborting.";
+        exit ${FAILURE_CODE};
+    fi
 else
-    echo "I expected .zenodo.json to have the following content..."
-    cat ${TMPFILE}
-    echo "...but I found:"
-    cat .zenodo.json
-    echo "... with diff:"
-    diff .zenodo.json ${TMPFILE}
-    echo "(6/6) CITATION.cff and .zenodo.json are not equivalent. Aborting.";
-    exit ${FAILURE_CODE};
+    if [ -z "$(diff --ignore-all-space .zenodo.json ${TMPFILE})" ] ; then
+        echo "(6/6) CITATION.cff and .zenodo.json are equivalent when ignoring whitespace.";
+    else
+        echo "I expected .zenodo.json to have the following content..."
+        cat ${TMPFILE}
+        echo "...but I found:"
+        cat .zenodo.json
+        echo "... with diff (ignoring whitespace):"
+        diff --ignore-all-space .zenodo.json ${TMPFILE}
+        echo "(6/6) CITATION.cff and .zenodo.json are not equivalent. Aborting.";
+        exit ${FAILURE_CODE};
+    fi
 fi
 
 exit ${SUCCESS_CODE};
