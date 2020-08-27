@@ -9,6 +9,7 @@ GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` cita
 | Check consistency of the citation metadata | [![metadata consistency](https://github.com/citation-file-format/cffconvert-github-action/workflows/metadata%20consistency/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22metadata+consistency%22) |
 | Verify that errors are generated for various incorrect cases | [![verify errors](https://github.com/citation-file-format/cffconvert-github-action/workflows/verify%20errors/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22verify+errors%22) |
 
+
 ## Example usage
 
 1. Save the following snippet as ``.github/workflows/cffconvert.yml``
