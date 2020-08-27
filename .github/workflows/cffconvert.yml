@@ -1,3 +1,5 @@
+name: metadata consistency
+
 on: push
 
 jobs:
