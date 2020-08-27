@@ -24,7 +24,7 @@ GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` cita
          - uses: actions/checkout@v2
            name: Check out a copy of the repository
 
-         - uses: citation-file-format/cffconvert-github-action@v1
+         - uses: citation-file-format/cffconvert-github-action@1
            name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
    ```
 
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@v2
         name: Check out a copy of the repository
 
-      - uses: citation-file-format/cffconvert-github-action@master
+      - uses: citation-file-format/cffconvert-github-action@1
         name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
         with:
           WORKDIR: tests/zenodo-missing/
