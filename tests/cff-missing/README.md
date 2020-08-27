@@ -1,0 +1,1 @@
+There's neither a CITATION.cff nor a .zenodo.json in this directory.

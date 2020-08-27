@@ -1,11 +1,12 @@
 on: push
 
 jobs:
-  build:
+  verify:
     name: "cffconvert"
     runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
-      # This step references the directory that contains the action.
+        name: Check out a copy of the repository
+
       - uses: citation-file-format/cffconvert-github-action@v1
+        name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
