@@ -1,5 +1,10 @@
 # cffconvert-github-action
 
+| --- | --- |
+| Description | Badge |
+| Check consistency of the citation metadata |![.github/workflows/cffconvert.yml](https://github.com/citation-file-format/cffconvert-github-action/workflows/.github/workflows/cffconvert.yml/badge.svg) |
+| Verify that errors are generated for various incorrect cases | ![.github/workflows/errors.yml](https://github.com/citation-file-format/cffconvert-github-action/workflows/.github/workflows/errors.yml/badge.svg) |
+
 GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` citation metadata.
 
 
