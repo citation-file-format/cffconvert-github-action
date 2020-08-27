@@ -1,8 +1,10 @@
+name: verify errors
+
 on: push
 
 jobs:
   verify:
-    name: "Verify errors"
+    name: "verify errors"
     runs-on: ubuntu-latest
     steps:
       # This step checks out a copy of your repository.
