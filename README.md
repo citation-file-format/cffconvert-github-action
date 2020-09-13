@@ -1,4 +1,4 @@
-# cffconvert-github-action
+# cffconvert GitHub Action
 
 GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` citation metadata.
 
