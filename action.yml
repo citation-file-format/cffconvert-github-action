@@ -19,8 +19,9 @@ inputs:
     required: false
 name: cffconvert
 runs:
-  args:
+  entrypoint:
     - /bin/sh
+  args:
     - /data/checks.sh
     - "${{ inputs.WORKDIR }}"
     - "${{ inputs.FAILURE_EXPECTED }}"
