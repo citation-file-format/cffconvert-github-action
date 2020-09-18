@@ -19,8 +19,7 @@ inputs:
     required: false
 name: cffconvert
 runs:
-  entrypoint:
-    - /bin/sh
+  entrypoint: /bin/sh
   args:
     - /data/checks.sh
     - "${{ inputs.WORKDIR }}"
