@@ -21,7 +21,7 @@ name: cffconvert
 runs:
   args:
     - /bin/sh
-    - checks.sh
+    - /data/checks.sh
     - "${{ inputs.WORKDIR }}"
     - "${{ inputs.FAILURE_EXPECTED }}"
     - "${{ inputs.DIFF_IGNORE_WHITESPACE }}"
