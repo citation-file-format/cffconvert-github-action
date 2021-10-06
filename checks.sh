@@ -75,7 +75,7 @@ if [ -f ".zenodo.json" ]; then
 else
     echo "(4/6) .zenodo.json file missing.";
     echo "Expected a .zenodo.json file with the following content..."
-    cffconvert --outputformat zenodo --ignore-suspect-keys
+    cffconvert --format zenodo --ignore-suspect-keys
     echo "...Aborting."
     exit ${FAILURE_CODE};
 fi
