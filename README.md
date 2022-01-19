@@ -1,6 +1,6 @@
 # cffconvert GitHub Action
 
-GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` citation metadata.
+GitHub action to validate CITATION.cff files, and convert to other citation formats.
 
 ## Badges
 
@@ -26,42 +26,10 @@ GitHub action to check consistency of ``CITATION.cff`` and ``.zenodo.json`` cita
          - uses: actions/checkout@v2
            name: Check out a copy of the repository
 
-         - uses: citation-file-format/cffconvert-github-action@1.1.2
-           name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
+         - uses: citation-file-format/cffconvert-github-action@2.0.0
+           name: Check whether the citation metadata from CITATION.cff is valid
    ```
 
 1. ``git add``, ``commit`` and ``push`` to GitHub
 1. Check the _Actions_ tab on your repository's page to check the action's output
 
-
-## Variables
-
-- ``DIFF_IGNORE_WHITESPACE``: Ignore all whitespace when ``diff``'ing the expected ``.zenodo.json`` contents with
-  the actual ``.zenodo.json`` contents.
-- ``FAILURE_EXPECTED``: In testing, it can be useful to flip the exit codes for failure and success. Set to '1' for
-  flipped definition; '0' or empty gives normal behavior.'
-- ``WORKDIR``: The working directory that ``checks.sh`` should change to before verifying whether ``CITATION.cff``
-  and ``.zenodo.json`` are equivalent.
-
-Example workflow file:
-
-```yaml
-name: cffconvert
-
-on: push
-
-jobs:
-  verify:
-    name: "cffconvert"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        name: Check out a copy of the repository
-
-      - uses: citation-file-format/cffconvert-github-action@1.1.2
-        name: Check whether the citation metadata from CITATION.cff is equivalent to that in .zenodo.json
-        with:
-          WORKDIR: tests/zenodo-missing/
-          FAILURE_EXPECTED: true
-          DIFF_IGNORE_WHITESPACE: true
-```
