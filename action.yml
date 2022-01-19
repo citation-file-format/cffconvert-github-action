@@ -6,6 +6,7 @@ branding:
 description: "Validate CITATION.cff files, and convert to other citation formats."
 name: cffconvert
 runs:
+  args: --validate
   entrypoint: cffconvert
   image: docker://citationcff/cffconvert:2.0.0
   using: docker
