@@ -1,8 +1,0 @@
-# Ignore everything ...
-*
-
-# ... except CITATION.cff, .zenodo.json, and checks.sh
-!CITATION.cff
-!.zenodo.json
-!checks.sh
-!tests
