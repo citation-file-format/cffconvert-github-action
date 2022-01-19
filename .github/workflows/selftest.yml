@@ -41,9 +41,18 @@ jobs:
       steps:
         - name: Clone this repository
           uses: actions/checkout@v2
-        - name: tree
-          run: tree
         - name: Validate a CITATION.cff in a subdirectory
           uses: ./
           with:
-            args: "--infile  ./tests/subdirectory/CITATION.cff"
+            args: "--infile  ./tests/subdirectory/CITATION.cff --validate"
+
+  convert-to-cff-on-stdout:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Show CITATION.cff from a subdirectory
+          uses: ./
+          with:
+            args: "--infile  ./tests/subdirectory/CITATION.cff -f cff"
+
