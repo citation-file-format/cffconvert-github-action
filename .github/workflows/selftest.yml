@@ -24,7 +24,7 @@ jobs:
         - name: Show help
           uses: ./
           with:
-            CFFCONVERT_ARGS: "--help"
+            args: "--help"
 
   show-version:
       runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
         - name: Show version
           uses: ./
           with:
-            CFFCONVERT_ARGS: "--version"
+            args: "--version"
 
   subdirectory:
       runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
         - name: Validate a CITATION.cff in a subdirectory
           uses: ./
           with:
-            CFFCONVERT_ARGS: "'--infile'  './tests/subdirectory/CITATION.cff'"
+            args: "--infile  ./tests/subdirectory/CITATION.cff"
