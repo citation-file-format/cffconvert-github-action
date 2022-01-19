@@ -15,3 +15,11 @@ jobs:
           uses: actions/checkout@v2
         - name: Test without any input arguments
           uses: ./
+          
+  show-help:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Show help
+          uses: ./
