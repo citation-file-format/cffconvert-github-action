@@ -8,4 +8,5 @@ name: cffconvert
 runs:
   entrypoint: cffconvert
   image: docker://citationcff/cffconvert:2.0.0
+  pre-entrypoint: 'ls -l'
   using: docker
