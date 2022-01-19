@@ -56,7 +56,7 @@ jobs:
           with:
             args: "--infile  ./tests/subdirectory/CITATION.cff --validate"
 
-  show-cff-from-subdirectory-on-stdout:
+  convert-to-cff-on-stdout:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
@@ -65,4 +65,15 @@ jobs:
           uses: ./
           with:
             args: "--infile  ./tests/subdirectory/CITATION.cff -f cff"
+
+  convert-to-zenodo-on-stdout:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
+          uses: ./
+          with:
+            args: "--infile  ./tests/subdirectory/CITATION.cff -f zenodo"
+
 
