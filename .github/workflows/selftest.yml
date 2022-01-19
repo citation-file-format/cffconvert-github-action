@@ -46,5 +46,4 @@ jobs:
         - name: Validate a CITATION.cff in a subdirectory
           uses: ./
           with:
-            CFFCONVERT_ARGS: --infile
-             
+            CFFCONVERT_ARGS: "'--infile'  './tests/subdirectory/CITATION.cff'"
