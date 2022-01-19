@@ -24,7 +24,7 @@ jobs:
         - name: Show help
           uses: ./
           with:
-            args: "--help"
+            args: --help
 
   show-version:
       runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
         - name: Show version
           uses: ./
           with:
-            args: "--version"
+            args: --version
 
   validate:
       runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
         - name: Validate a CITATION.cff file from the current directory
           uses: ./
           with:
-            args: "--validate"
+            args: --validate
   
   subdirectory:
       runs-on: ubuntu-latest
