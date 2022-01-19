@@ -25,3 +25,13 @@ jobs:
           uses: ./
           with:
             CFFCONVERT_ARGS: "--help"
+
+  subdirectory:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Validate a CITATION.cff in a subdirectory
+          uses: ./
+          with:
+            CFFCONVERT_ARGS: "--infile subdirectory/CITATION.cff"
