@@ -23,11 +23,15 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
        name: "cffconvert"
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v2
-           name: Check out a copy of the repository
+         - name: Check out a copy of the repository
+           uses: actions/checkout@v2
+           
 
-         - uses: citation-file-format/cffconvert-github-action@2.0.0
-           name: Check whether the citation metadata from CITATION.cff is valid
+         - name: Check whether the citation metadata from CITATION.cff is valid
+           uses: citation-file-format/cffconvert-github-action@2.0.0
+           with:
+             args: "--validate"
+           
    ```
 
 1. ``git add``, ``commit`` and ``push`` to GitHub
