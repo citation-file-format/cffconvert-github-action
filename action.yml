@@ -3,27 +3,11 @@ author: "https://github.com/jspaaks"
 branding:
   color: purple
   icon: check
-description: "Validate CITATION.cff and .zenodo.json and check consistency"
-inputs:
-  DIFF_IGNORE_WHITESPACE:
-    default: true
-    description: "Ignore all whitespace when diffing the expected .zenodo.json with the actual .zenodo.json contents."
-    required: false
-  FAILURE_EXPECTED:
-    default: false
-    description: "In testing it can be useful to flip the exit codes for failure and success. Set to 1 for flipped definition; 0 or empty gives normal behavior."
-    required: false
-  WORKDIR:
-    default: "."
-    description: "The working directory that checks.sh should change to"
-    required: false
+description: "Validate CITATION.cff files, and convert to other citation formats."
 name: cffconvert
 runs:
-  entrypoint: /bin/sh
+  entrypoint: cffconvert
   args:
-    - /data/checks.sh
-    - "${{ inputs.WORKDIR }}"
-    - "${{ inputs.FAILURE_EXPECTED }}"
-    - "${{ inputs.DIFF_IGNORE_WHITESPACE }}"
-  image: Dockerfile
+    - --validate
+  image: docker://citationcff/cffconvert:2.0.0
   using: docker
