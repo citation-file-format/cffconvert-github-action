@@ -47,6 +47,5 @@ jobs:
           uses: ./
           with:
             CFFCONVERT_ARGS: |
-              --infile
-              ./tests/subdirectory/CITATION.cff
-              
+              --infile ./tests/subdirectory/CITATION.cff
+             
