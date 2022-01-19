@@ -4,15 +4,8 @@ branding:
   color: purple
   icon: check
 description: "Validate CITATION.cff files, and convert to other citation formats."
-inputs:
-  CFFCONVERT_ARGS:
-    default: --validate
-    description: "Any arguments you would pass to cffconvert when using the CLI"
-    required: false
 name: cffconvert
 runs:
   entrypoint: cffconvert
-  args:
-    - "${{ inputs.CFFCONVERT_ARGS }}"
   image: docker://citationcff/cffconvert:2.0.0
   using: docker
