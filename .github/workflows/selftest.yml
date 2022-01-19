@@ -26,6 +26,16 @@ jobs:
           with:
             CFFCONVERT_ARGS: "--help"
 
+  show-version:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Show version
+          uses: ./
+          with:
+            CFFCONVERT_ARGS: "--version"
+
   subdirectory:
       runs-on: ubuntu-latest
       steps:
