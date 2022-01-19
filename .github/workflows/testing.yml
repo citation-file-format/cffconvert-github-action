@@ -1,0 +1,17 @@
+name: testing
+on: # on any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+
+  no-args:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Test without any input arguments
+          uses: ./
