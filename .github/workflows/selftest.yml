@@ -46,7 +46,8 @@ jobs:
           with:
             args: --validate
         - run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-        - run: echo ${{outputs.date}}
+          id: store-output
+        - run: echo ${{steps.store-output.outputs.date}}
   
   subdirectory:
       runs-on: ubuntu-latest
