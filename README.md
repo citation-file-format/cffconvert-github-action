@@ -1,6 +1,6 @@
 # cffconvert GitHub Action
 
-GitHub action to validate CITATION.cff files, and convert to other citation formats using [dockerized version of cffconvert](https://pypi.org/project/cffconvert/).
+GitHub action to validate CITATION.cff files, and convert to other citation formats using dockerized version of [cffconvert](https://pypi.org/project/cffconvert/).
 
 ## Badges
 
