@@ -27,8 +27,8 @@ name: cffconvert
 on: push
 
 jobs:
-  verify:
-    name: "cffconvert"
+  validate:
+    name: "validate"
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
@@ -49,8 +49,8 @@ name: cffconvert
 on: push
 
 jobs:
-  verify:
-    name: "cffconvert"
+  validate:
+    name: "validate"
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
@@ -71,8 +71,8 @@ name: cffconvert
 on: push
 
 jobs:
-  verify:
-    name: "cffconvert"
+  convert:
+    name: "convert"
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
