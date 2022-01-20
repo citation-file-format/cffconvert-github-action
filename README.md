@@ -80,12 +80,12 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
            with:
              args: "--infile ./CITATION.cff --format zenodo --outfile .zenodo.json"
             
-        - name: Commit and push Zenodo metadata 
-          run: |
-            git config --global user.name 'cffconvert GitHub Action'
-            git config --global user.email 'cffconvert@users.noreply.github.com'
-            git add .zenodo.json
-            git commit -m "Automated update of Zenodo metadata"
-            git push            
+         - name: Commit and push Zenodo metadata 
+           run: |
+             git config --global user.name 'cffconvert GitHub Action'
+             git config --global user.email 'cffconvert@users.noreply.github.com'
+             git add .zenodo.json
+             git commit -m "Automated update of Zenodo metadata"
+             git push            
            
    ```
