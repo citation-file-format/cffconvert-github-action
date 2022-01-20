@@ -17,13 +17,13 @@ jobs:
           id: test1
           uses: ./
         - name: Check stdout          
-          if [[ ${{ steps.test1.outputs.stdout }} =~ "Citation metadata are valid" ]]; then
-              echo "Success"
-              # exit 0
-          else
-              echo "Failed"          
-              # exit 1
-          fi         
+            if [[ ${{ steps.test1.outputs.stdout }} =~ "Citation metadata are valid" ]]; then
+                echo "Success"
+                # exit 0
+            else
+                echo "Failed"          
+                # exit 1
+            fi       
 
   show-help:
       runs-on: ubuntu-latest
