@@ -42,12 +42,11 @@ jobs:
         - name: Clone this repository
           uses: actions/checkout@v2
         - name: Validate a CITATION.cff file from the current directory
+          id: store-output
           uses: ./
           with:
             args: --validate
-        - run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-          id: store-output
-        - run: echo ${{steps.store-output.outputs.date}}
+        - run: echo ${{steps.store-output.outputs.stdout44}}
   
   subdirectory:
       runs-on: ubuntu-latest
