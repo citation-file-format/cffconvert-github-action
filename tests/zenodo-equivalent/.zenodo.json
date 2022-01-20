@@ -1,0 +1,13 @@
+{
+    "creators": [
+        {
+            "name": "Spaaks, Jurriaan H."
+        }
+    ],
+    "license": {
+        "id": "Apache-2.0"
+    },
+    "publication_date": "2020-08-21",
+    "title": "cffconvert GitHub Action",
+    "version": "0.1.0"
+}
