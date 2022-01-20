@@ -50,10 +50,10 @@ jobs:
           run: |
             if [[ "${{ steps.step_validate.outputs.stdout }}" == *"Citation metadata are valid"* ]]; then
                 echo "Success"
-                # exit 0
+                exit 0
             else
                 echo "Failed"          
-                # exit 1
+                exit 1
             fi         
 
   subdirectory:
