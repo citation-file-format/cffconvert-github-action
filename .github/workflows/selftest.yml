@@ -64,7 +64,7 @@ jobs:
         - name: Show CITATION.cff from a subdirectory on stdout
           uses: ./
           with:
-            args: "--infile ./tests/subdirectory/CITATION.cff -f cff"
+            args: "--infile ./tests/subdirectory/CITATION.cff --format cff"
 
   convert-to-zenodo-on-stdout:
       runs-on: ubuntu-latest
@@ -74,4 +74,4 @@ jobs:
         - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
           uses: ./
           with:
-            args: "--infile ./tests/subdirectory/CITATION.cff -f zenodo"
+            args: "--infile ./tests/subdirectory/CITATION.cff --format zenodo"
