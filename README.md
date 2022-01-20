@@ -56,7 +56,7 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
          - name: Validate a CITATION.cff from a subdirectory
            uses: citation-file-format/cffconvert-github-action@2.0.0
            with:
-             args: "--infile ./subdirectory/CITATION.cff --validate"
+             args: "--infile ./tests/subdirectory/CITATION.cff --validate"
            
    ```
 
