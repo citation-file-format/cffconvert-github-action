@@ -78,7 +78,6 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
          - name: Convert CITATION.cff to Zenodo metadata format
            id: cffconvert
            uses: citation-file-format/cffconvert-github-action@2.0.0
-           
            with:
              args: "--infile ./CITATION.cff --format zenodo > .zenodo.json"
             
