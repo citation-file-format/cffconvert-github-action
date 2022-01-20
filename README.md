@@ -39,4 +39,26 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
            
    ```
 
+### Validating from a subdirectory
+
+   ```yaml
+   name: cffconvert
+   
+   on: push
+
+   jobs:
+     verify:
+       name: "cffconvert"
+       runs-on: ubuntu-latest
+       steps:
+         - name: Check out a copy of the repository
+           uses: actions/checkout@v2
+           
+        - name: Validate a CITATION.cff from a subdirectory
+          uses: ./
+          with:
+            args: "--infile ./subdirectory/CITATION.cff --validate"
+           
+   ```
+
 
