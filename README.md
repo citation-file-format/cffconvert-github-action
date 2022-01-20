@@ -1,6 +1,6 @@
 # cffconvert GitHub Action
 
-GitHub action to validate CITATION.cff files, and convert to other citation formats.
+GitHub action to validate CITATION.cff files, and convert to other citation formats using [cffconvert](https://github.com/citation-file-format/cff-converter-python).
 
 ## Badges
 
