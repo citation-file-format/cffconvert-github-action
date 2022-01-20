@@ -13,11 +13,11 @@ jobs:
       steps:
         - name: Clone this repository
           uses: actions/checkout@v2
-        - id: test1
+        - id: testnoargs
           name: Test without any input arguments          
           uses: ./
         - name: Check stdout          
-            if [[ ${{ steps.test1.outputs.stdout }} =~ "Citation metadata are valid" ]]; then
+            if [[ ${{ steps.testnoargs.outputs.stdout }} =~ "Citation metadata are valid" ]]; then
                 echo "Success"
                 # exit 0
             else
