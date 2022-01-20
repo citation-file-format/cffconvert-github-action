@@ -44,13 +44,15 @@ jobs:
         - name: Validate a CITATION.cff file from the current directory
           id: step_validate
           uses: ./
+          env:
+            TEST_OUT: hello world          
           with:
-            args: --validate
+            args: --validate | echo "::set-output name=step_stdout::$TEST_OUT"
         - name: Check stdout
           run: |
-            echo ${{ steps.step_validate.outputs.stdout }}
-            echo "${{ steps.step_validate.outputs.stdout }}"
-            if [[ "${{ steps.step_validate.outputs.stdout }}" == *"Citation metadata are valid"* ]]; then
+            echo ${{ steps.step_validate.outputs.step_stdout }}
+            echo "${{ steps.step_validate.outputs.step_stdout }}"
+            if [[ "${{ steps.step_validate.outputs.step_stdout }}" == *"Citation metadata are valid"* ]]; then
                 echo "Success"
                 exit 0
             else
