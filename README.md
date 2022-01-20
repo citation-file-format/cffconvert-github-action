@@ -63,7 +63,7 @@ jobs:
         
 ```
 
-### Convert CITATION.cff to Zenodo metadata format
+### Converting CITATION.cff to Zenodo metadata format
 
 ```yaml
 name: cffconvert
