@@ -75,3 +75,16 @@ jobs:
           uses: ./
           with:
             args: "--infile ./tests/subdirectory/CITATION.cff --format zenodo"
+
+  convert-to-zenodo-and-compare:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone this repository
+          uses: actions/checkout@v2
+        - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
+          uses: ./
+          with:
+            args: "--infile ./tests/zenodo-equivalent/CITATION.cff --format zenodo > .zenodo.test.json"
+        - name: Compare the generated .zenodo.json with the expected
+          run: |
+            diff <(jq -S . .zenodo.test.json) <(jq -S . ./tests/zenodo-equivalent/.zenodo.json)
