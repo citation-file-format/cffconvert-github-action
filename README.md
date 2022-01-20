@@ -7,6 +7,7 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 | Description | Badge |
 | --- | --- |
 | Verify that errors are generated for various incorrect cases | [![verify errors](https://github.com/citation-file-format/cffconvert-github-action/workflows/verify%20errors/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22verify+errors%22) |
+| Markdown links | [![Check Markdown links](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml) |
 
 
 ## Example usage
