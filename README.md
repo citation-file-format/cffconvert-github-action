@@ -7,7 +7,6 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 | Description | Badge |
 | --- | --- |
 | Verify that errors are generated for various incorrect cases | [![verify errors](https://github.com/citation-file-format/cffconvert-github-action/workflows/verify%20errors/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22verify+errors%22) |
-=======
 | Zenodo | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3993241.svg)](https://doi.org/10.5281/zenodo.3993241) |
 | Testing | [![testing](https://github.com/citation-file-format/cffconvert-github-action/workflows/selftest/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22selftest%22) |
 | Citation metadata | [![citation metadata](https://github.com/citation-file-format/cffconvert-github-action/workflows/cffconvert/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22cffconvert%22) |
