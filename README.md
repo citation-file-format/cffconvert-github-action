@@ -13,7 +13,7 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 
 ## Usage
 
-1. Save the snippets below as ``.github/workflows/cffconvert.yml`` to validate your CITATION.cff on each push.
+1. Save the snippet below as ``.github/workflows/cffconvert.yml`` to validate your CITATION.cff on each push.
 1. ``git add``, ``commit`` and ``push`` to your GitHub repository
 1. Check the _Actions_ tab on your repository's page to check the action's output
 
@@ -37,4 +37,4 @@ jobs:
 
 ```
 
-**You can also look into [advanced examples](advanced.md).**
+**You can also look into [advanced examples](README.advanced.md).**
