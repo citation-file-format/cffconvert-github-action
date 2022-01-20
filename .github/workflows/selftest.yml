@@ -45,6 +45,8 @@ jobs:
           uses: ./
           with:
             args: --validate
+        - run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        - run: echo ${{outputs.date}}
   
   subdirectory:
       runs-on: ubuntu-latest
