@@ -12,11 +12,10 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 
 ## Usage
 
-1. Save the one of the snippet in [Examples](#examples) as ``.github/workflows/cffconvert.yml``
+1. Save the one of the snippets as ``.github/workflows/cffconvert.yml``
 1. ``git add``, ``commit`` and ``push`` to your GitHub repository
 1. Check the _Actions_ tab on your repository's page to check the action's output
 
-## Examples
 
 ### Validation
    ```yaml
@@ -61,4 +60,33 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
            
    ```
 
+### Convert CITATION.cff to Zenodo metadata format
 
+   ```yaml
+   name: cffconvert
+   
+   on: push
+
+   jobs:
+     verify:
+       name: "cffconvert"
+       runs-on: ubuntu-latest
+       steps:
+         - name: Check out a copy of the repository
+           uses: actions/checkout@v2
+           
+        - name: Convert CITATION.cff to Zenodo metadata format
+          id: cffconvert
+          uses: ./
+          with:
+            args: "--infile ./CITATION.cff -f zenodo > zenodo.json"
+            
+        - name: Commit and push Zenodo metadata 
+          run: |
+            git config --global user.name 'cffconvert GitHub Action'
+            git config --global user.email 'cffconvert@users.noreply.github.com'
+            git add zenodo.json
+            git commit -am "Automated of Zenodo metadata"
+            git push            
+           
+   ```
