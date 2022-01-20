@@ -15,6 +15,10 @@ authors:
     orcid: "https://orcid.org/0000-0003-4451-281X"
 cff-version: "1.2.0"
 date-released: 2022-01-19
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.3993241
+    description: "The work's conceptdoi"
 license: "Apache-2.0"
 message: "If you use this software, please cite it using these metadata."
 title: "cffconvert GitHub Action"
