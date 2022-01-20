@@ -1,0 +1,57 @@
+# Advanced examples
+
+You can pass any arguments in the `args:` key that you would to the `cffconvert` CLI tool.
+This allows for some interesting usage.
+See the examples below.
+
+## Validating from a subdirectory
+
+```yaml
+name: cffconvert
+
+on: push
+
+jobs:
+  validate:
+    name: "validate"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a copy of the repository
+        uses: actions/checkout@v2
+
+      - name: Validate a CITATION.cff from a subdirectory
+        uses: citation-file-format/cffconvert-github-action@2.0.0
+        with:
+          args: "--infile ./tests/subdirectory/CITATION.cff --validate"
+
+```
+
+## Converting CITATION.cff to Zenodo metadata format
+
+```yaml
+name: cffconvert
+
+on: push
+
+jobs:
+  convert:
+    name: "convert"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a copy of the repository
+        uses: actions/checkout@v2
+
+      - name: Convert CITATION.cff to Zenodo metadata format
+        uses: citation-file-format/cffconvert-github-action@2.0.0
+        with:
+          args: "--infile ./CITATION.cff --format zenodo --outfile .zenodo.json"
+
+      - name: Commit and push Zenodo metadata
+        run: |
+          git config --global user.name 'cffconvert GitHub Action'
+          git config --global user.email 'cffconvert@users.noreply.github.com'
+          git add .zenodo.json
+          git commit -m "Automated update of Zenodo metadata"
+          git push
+
+```

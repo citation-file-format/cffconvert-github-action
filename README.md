@@ -13,12 +13,9 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 
 ## Usage
 
-1. Save one of the snippets below as ``.github/workflows/cffconvert.yml``
+1. Save the snippet below as ``.github/workflows/cffconvert.yml`` to validate your CITATION.cff on each push.
 1. ``git add``, ``commit`` and ``push`` to your GitHub repository
 1. Check the _Actions_ tab on your repository's page to check the action's output
-
-
-### Validation
 
 ```yaml
 name: cffconvert
@@ -32,7 +29,7 @@ jobs:
     steps:
       - name: Check out a copy of the repository
         uses: actions/checkout@v2
-        
+
       - name: Check whether the citation metadata from CITATION.cff is valid
         uses: citation-file-format/cffconvert-github-action@2.0.0
         with:
@@ -40,54 +37,4 @@ jobs:
 
 ```
 
-### Validating from a subdirectory
-
-```yaml
-name: cffconvert
-
-on: push
-
-jobs:
-  validate:
-    name: "validate"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out a copy of the repository
-        uses: actions/checkout@v2
-        
-      - name: Validate a CITATION.cff from a subdirectory
-        uses: citation-file-format/cffconvert-github-action@2.0.0
-        with:
-          args: "--infile ./tests/subdirectory/CITATION.cff --validate"
-        
-```
-
-### Converting CITATION.cff to Zenodo metadata format
-
-```yaml
-name: cffconvert
-
-on: push
-
-jobs:
-  convert:
-    name: "convert"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out a copy of the repository
-        uses: actions/checkout@v2
-        
-      - name: Convert CITATION.cff to Zenodo metadata format
-        uses: citation-file-format/cffconvert-github-action@2.0.0
-        with:
-          args: "--infile ./CITATION.cff --format zenodo --outfile .zenodo.json"
-        
-      - name: Commit and push Zenodo metadata 
-        run: |
-          git config --global user.name 'cffconvert GitHub Action'
-          git config --global user.email 'cffconvert@users.noreply.github.com'
-          git add .zenodo.json
-          git commit -m "Automated update of Zenodo metadata"
-          git push            
-        
-```
+**You can also look into [advanced examples](README.advanced.md).**
