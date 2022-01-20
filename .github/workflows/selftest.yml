@@ -18,7 +18,7 @@ jobs:
           uses: ./
         - name: Check stdout
           run: |
-            if [[ ${{ steps.test1.outputs.stdout }} =~ .*"Citation metadata are valid".* ]]; then
+            if [[ "${{ steps.test1.outputs.stdout }}" == *"Citation metadata are valid"* ]]; then
                 echo "Success"
                 # exit 0
             else
