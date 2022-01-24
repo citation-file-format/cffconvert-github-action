@@ -84,7 +84,7 @@ jobs:
         - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
           uses: ./
           with:
-            args: "--infile ./tests/zenodo-equivalent/CITATION.cff --format zenodo --outfile .zenodo.test.json"
+            args: "--infile ./tests/zenodo-equivalent/CITATION.cff --format zenodo --outfile ./tests/zenodo-equivalent/.zenodo.test.json"
         - name: Compare the generated .zenodo.json with the expected
           run: |
-            diff <(jq -S . .zenodo.test.json) <(jq -S . ./tests/zenodo-equivalent/.zenodo.json)
+            diff <(jq -S . ./tests/zenodo-equivalent/.zenodo.test.json) <(jq -S . ./tests/zenodo-equivalent/.zenodo.json)
