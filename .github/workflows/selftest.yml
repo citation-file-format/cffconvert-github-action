@@ -48,6 +48,7 @@ jobs:
             args: --validate
         - name: Check stdout
           run: |
+            echo ${{ steps.step_validate.outputs.step_stdout }}
             echo "${{ steps.step_validate.outputs.step_stdout }}"
             if [[ "${{ steps.step_validate.outputs.step_stdout }}" == *"Citation metadata are valid"* ]]; then
                 echo "Success"
