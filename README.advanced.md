@@ -2,7 +2,21 @@
 
 You can pass any arguments in the `args:` key that you would to the `cffconvert` CLI tool.
 This allows for some interesting usage.
-See the examples below.
+
+The list of options is right below, and you can see some examples in the next sections.
+```
+Options:
+  -i, --infile PATH               Path to the CITATION.cff input file. If this
+                                  option is omitted, './CITATION.cff' is used.
+  -o, --outfile PATH              Path to the output file.
+  -f, --format [apalike|bibtex|cff|codemeta|endnote|ris|schema.org|zenodo]
+                                  Output format.
+  -u, --url TEXT                  URL to the CITATION.cff input file.
+  -h, --help                      Show help and exit.
+  --show-trace                    Show error trace.
+  --validate                      Validate the CITATION.cff file and exit.
+  --version                       Print version and exit.
+```
 
 ## Validating from a subdirectory
 
