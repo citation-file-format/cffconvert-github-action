@@ -16,8 +16,7 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 | Testing | [![testing](https://github.com/citation-file-format/cffconvert-github-action/workflows/selftest/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22selftest%22) |
 | Citation metadata | [![citation metadata](https://github.com/citation-file-format/cffconvert-github-action/workflows/cffconvert/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22cffconvert%22) |
 | Markdown links | [![links](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml) |
-
-
+| fair-software.eu | [![fair software badge](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/fair-software.yml/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/fair-software.yml) |
 
 
 ## Usage
