@@ -11,11 +11,12 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 | (3/5) community registry           | [![github marketplace badge](https://img.shields.io/badge/github-marketplace-000.svg?logo=github&labelColor=gray&color=blue)](https://github.com/marketplace/actions/cffconvert) [![Research Software Directory](https://img.shields.io/badge/rsd-cffconvert-github-action-00a3e3.svg)](https://www.research-software.nl/software/cffconvert-github-action) |
 | (4/5) citation                     | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3993241.svg)](https://doi.org/10.5281/zenodo.3993241) |
 | (5/5) checklist                    |  |
-| overall                            | [![fair-software badge](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F-green)](https://fair-software.eu) |
+| overall                            | [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu) |
 | **GitHub Actions**
 | Testing | [![testing](https://github.com/citation-file-format/cffconvert-github-action/workflows/selftest/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22selftest%22) |
 | Citation metadata | [![citation metadata](https://github.com/citation-file-format/cffconvert-github-action/workflows/cffconvert/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions?query=workflow%3A%22cffconvert%22) |
 | Markdown links | [![links](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml/badge.svg)](https://github.com/citation-file-format/cffconvert-github-action/actions/workflows/link-check.yml) |
+
 
 
 
