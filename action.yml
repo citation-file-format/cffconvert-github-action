@@ -9,6 +9,5 @@ outputs:
   step_stdout: # id of the output
     description: 'just testing outputs'
 runs:
-  entrypoint: cffconvert
   image: docker://fdiblen/cffconvert:2.0.0
   using: docker
