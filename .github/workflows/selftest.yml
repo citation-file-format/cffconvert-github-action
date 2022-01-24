@@ -45,9 +45,9 @@ jobs:
           id: step_validate
           uses: ./
           env:
-            TEST_OUT: hello world          
+            TEST_OUT: hello world
           with:
-            args: --validate | echo "::set-output name=step_stdout::$TEST_OUT"
+            args: --validate
         - name: Check stdout
           run: |
             echo ${{ steps.step_validate.outputs.step_stdout }}
@@ -56,9 +56,9 @@ jobs:
                 echo "Success"
                 exit 0
             else
-                echo "Failed"          
+                echo "Failed"
                 exit 1
-            fi         
+            fi
 
   subdirectory:
       runs-on: ubuntu-latest

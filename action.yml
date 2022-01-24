@@ -10,5 +10,5 @@ outputs:
     description: 'just testing outputs'
 runs:
   entrypoint: cffconvert
-  image: docker://citationcff/cffconvert:2.0.0
+  image: docker://fdiblen/cffconvert:2.0.0
   using: docker
