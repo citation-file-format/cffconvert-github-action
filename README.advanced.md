@@ -23,7 +23,10 @@ Options:
 ```yaml
 name: cffconvert
 
-on: push
+on:
+  push:
+    paths:
+      - CITATION.cff
 
 jobs:
   validate:
@@ -45,7 +48,10 @@ jobs:
 ```yaml
 name: cffconvert
 
-on: push
+on:
+  push:
+    paths:
+      - CITATION.cff
 
 jobs:
   convert:
@@ -75,7 +81,10 @@ jobs:
 ```yaml
 name: cffconvert
 
-on: push
+on:
+  push:
+    paths:
+      - CITATION.cff
 
 jobs:
   convert:

@@ -22,7 +22,10 @@ GitHub action to validate CITATION.cff files, and convert to other citation form
 ```yaml
 name: cffconvert
 
-on: push
+on:
+  push:
+    paths:
+      - CITATION.cff
 
 jobs:
   validate:
