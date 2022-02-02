@@ -40,3 +40,12 @@ jobs:
 ```
 
 **You can also look into [advanced examples](README.advanced.md).**
+
+<br>
+<p align="center">
+  Developed by Netherlands eScience Center.
+</p> 
+<p align="center">
+  <a href="https://esciencecenter.nl">esciencecenter.nl</a>
+</p> 
+
