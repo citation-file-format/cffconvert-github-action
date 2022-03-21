@@ -1,13 +1,26 @@
 name: fair-software
 
-on: push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - .github/workflows/fair-software.yml
+  pull_request:
+    paths:
+      - README.md
+      - .github/workflows/fair-software.yml
+  workflow_dispatch:
+
 
 jobs:
   verify:
     name: "fair-software"
     runs-on: ubuntu-latest
     steps:
-      - uses: fair-software/howfairis-github-action@0.2.0
+      - uses: fair-software/howfairis-github-action@0.2.1
         name: Measure compliance with fair-software.eu recommendations
         env:
           PYCHARM_HOSTED: "Trick colorama into displaying colored output" 
