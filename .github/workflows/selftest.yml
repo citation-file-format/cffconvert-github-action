@@ -12,7 +12,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Test without any input arguments
           uses: ./
 
@@ -20,7 +20,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Show help
           uses: ./
           with:
@@ -30,7 +30,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Show version
           uses: ./
           with:
@@ -40,7 +40,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Validate a CITATION.cff file from the current directory
           uses: ./
           with:
@@ -50,7 +50,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Validate a CITATION.cff from a subdirectory
           uses: ./
           with:
@@ -60,7 +60,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Show CITATION.cff from a subdirectory on stdout
           uses: ./
           with:
@@ -70,7 +70,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
           uses: ./
           with:
@@ -80,7 +80,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Clone this repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Convert CITATION.cff from a subdirectory to Zenodo metadata format, show result on stdout
           uses: ./
           with:
