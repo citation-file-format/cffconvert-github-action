@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Validate a CITATION.cff from a subdirectory
         uses: citation-file-format/cffconvert-github-action@2.0.0
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Convert CITATION.cff to Zenodo metadata format
         uses: citation-file-format/cffconvert-github-action@2.0.0
@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Convert CITATION.cff to Zenodo metadata format
         uses: citation-file-format/cffconvert-github-action@2.0.0
