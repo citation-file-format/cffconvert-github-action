@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out a copy of the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check whether the citation metadata from CITATION.cff is valid
         uses: citation-file-format/cffconvert-github-action@2.0.0
@@ -47,8 +47,8 @@ jobs:
 <br>
 <p align="center">
   Developed by Netherlands eScience Center.
-</p> 
+</p>
 <p align="center">
   <a href="https://esciencecenter.nl">esciencecenter.nl</a>
-</p> 
+</p>
 
